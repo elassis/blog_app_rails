@@ -1,59 +1,53 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Blog Web App
 
-> One paragraph statement about the project.
+> This project is about a fully functional and interactive blog website, users can interact with each post commenting it and liking it. this project was developed with Ruby on Rails and PostgreSQL as the database. 
 
-![screenshot](./app_screenshot.png)
-
-Additional description about the project and its features.
+## Features
+- Create Users
+- Update Users
+- Delete Users
+- Create Posts
+- Update Posts
+- Delete Posts
+- Add comments to Posts
+- Delete comments from Posts
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
-
-## Live Demo
-
-[Live Demo Link](https://livedemo.com)
-
+- Ruby on Rails
+- PostgreSQL
 
 ## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
 
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
+- Ruby on Rails
+- RubyGems
+- PostgreSQL
 
 ### Setup
+Clone Repository locally
 
-### Install
+`git clone <REPO-NAME>`
 
-### Usage
+Go to app directory
 
-### Run tests
+`cd blog_app_rails`
 
-### Deployment
+Run local rails server app
 
-
+`rails s`
 
 ## Authors
 
-👤 **Author1**
+👤 **Enmanuel Lassis**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@elassis](https://github.com/elassis)
 
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- LinkedIn: [Enmanuel Lassis](https://linkedin.com/in/enmanuel-lassis-pena)
 
 ## 🤝 Contributing
 
@@ -64,12 +58,6 @@ Feel free to check the [issues page](../../issues/).
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
 
 ## 📝 License
 
