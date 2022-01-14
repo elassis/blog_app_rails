@@ -41,6 +41,25 @@ Run local rails server app
 
 `rails s`
 
+### Test
+Go to project folder
+`cd blog_app_rails`
+
+Install dependencies
+`bundle install`
+
+Run tests
+`rspec spec`
+
+### Migrations
+
+To create a database
+$ rails db:create
+
+To run the migration
+
+$ rails db:migrate
+
 ## Authors
 
 👤 **Enmanuel Lassis**
