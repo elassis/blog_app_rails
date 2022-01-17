@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 20_220_113_183_203) do
   create_table 'comments', force: :cascade do |t|
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.string 'text'
+    t.text 'text'
     t.bigint 'user_id', null: false
-    t.bigint 'posts_id', null: false
-    t.index ['posts_id'], name: 'index_comments_on_posts_id'
+    t.bigint 'post_id', null: false
+    t.index ['post_id'], name: 'index_comments_on_posts_id'
     t.index ['user_id'], name: 'index_comments_on_user_id'
   end
 
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20_220_113_183_203) do
     t.index ['post_id'], name: 'index_likes_on_post_id'
     t.index ['user_id'], name: 'index_likes_on_user_id'
   end
+  second_part
 end
 
 def second_part
@@ -59,7 +60,7 @@ def second_part
 end
 
 def third_part
-  add_foreign_key 'comments', 'posts', column: 'posts_id'
+  add_foreign_key 'comments', 'posts', column: 'post_id'
   add_foreign_key 'comments', 'users'
   add_foreign_key 'likes', 'posts'
   add_foreign_key 'likes', 'users'
