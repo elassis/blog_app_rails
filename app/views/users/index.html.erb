@@ -1,1 +1,28 @@
-<h1>Show a list of all the users</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Index</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "styles", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <ul class="ul-user">
+    <% @list_users.each do |u| %>
+    <li>
+      <div class="user-img">
+        <img src="<%= u.photo %>" alt="user_photo"/>
+      </div>
+      <div class="data">
+        <p class="name"><%= u.name %></p>
+        <p class="number-posts">number of post: <%= u.post_counter %></p>
+      </div>
+    </li>
+    <%end%>
+    </ul>   
+  </body>
+</html>
+

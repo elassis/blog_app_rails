@@ -1,1 +1,28 @@
-<h1>Show data of user's specific post</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Index</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "styles", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <ul class="ul-post">
+      <li class="post-section-details">
+        <div class="post-data">
+          <p class="post-title-name"><%= @post.title %> by <%= @user.name%></p>
+          <p class="post-interactions">comments: <%= @post.comments_counter%>, likes: <%= @post.likes_counter%> </p>
+        </div>
+        <p class="post-text-extended"><%= @post.text %></p>
+      </li>
+      <li class="comments-section-details">
+        <% @comments.each do |c|%>
+          <p><%= c.user_name(c.user_id) %>: <%= c.text %></p>
+        <% end %>
+      </li>
+    </ul>
+  </body>
+</html>
