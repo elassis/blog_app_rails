@@ -1,1 +1,51 @@
-<h1>Show list of every user's post</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Index</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "styles", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <ul class="ul-user">
+      <li>
+        <div class="user-img">
+          <img src="<%= @user.photo %>" alt="user_photo"/>
+        </div>
+        <div class="data">
+          <p class="name"><%= @user.name %></p>
+          <p class="number-posts">number of post: <%= @user.post_counter %></p>
+        </div>
+      </li>
+    </ul>
+    <section>
+      <ul class="ul-posts">
+        <% @posts.each do |p| %>
+          <li class="post-section-index">
+            <div class="post-section">
+              <p class="post-title"><%= p.title %></p>
+              <p class="post-text"><%= p.text %></p>
+              <div class="interactions">
+                <p>comments: <%= p.comments_counter %>,</p>
+                <p>likes: <%= p.likes_counter %></p>
+              </div>
+            </div>
+            <div class="comments-section">
+              <% @comments = p.recent_comments %>
+              <% @comments.each do |c|%>
+                <div class="comment-data">
+                  <p><%= c.user_name(c.user_id)%>:</p>
+                  <p><%= c.text %></p>
+                </div>
+              <% end %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+    <button class="btn-user-details">pagination</button>
+  </body>
+</html>
