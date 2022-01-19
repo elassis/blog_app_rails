@@ -11,6 +11,6 @@ class Post < ActiveRecord::Base
 
   # A method which returns the 5 most recent comments for a given post.
   def recent_comments
-    Comment.includes(:post).where("post_id = #{id}").references(:post).limit(5)
+    Comment.includes(:post).where("post_id = #{id}").references(:post).limit(5).order(created_at: :desc)
   end
 end

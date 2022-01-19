@@ -126,7 +126,7 @@ button.btn-user-details{
 }
 
 .post-section-details{
-  padding: 0px 10px;
+  padding: 0px 10px 10px ;
 }
 .post-data {
   display: flex;
@@ -146,4 +146,43 @@ button.btn-user-details{
 }
 .post-text-extended{
   margin:0 0 10px 0;
+}
+.form-comments{
+  width: 80%;
+    margin: auto;
+}
+.form-comments > input[type='text']{
+  width: 100%;
+}
+
+.form-comments > input[type ='submit']{
+  display: block;
+  margin: 10px auto;
+}
+/*Post form*/
+.post-form{
+  width:90%;
+  margin: 10px auto;
+  box-sizing: border-box;
+  height: 50vh;
+}
+.text-area-post{
+  width: 100%;
+}
+.post-form > input[type='text']{
+  width: 100%;
+  padding: 5px;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+.post-form > textarea{
+  box-sizing: border-box;
+    padding: 10px;
+    height: 80%;
+}
+.post-form >input[type='submit']{
+  display: block;
+  margin: 10px auto;
+  width: 103px;
+  padding: 8px;
 }
