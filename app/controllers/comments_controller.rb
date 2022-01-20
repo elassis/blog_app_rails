@@ -1,11 +1,26 @@
-class CommentsController < ActionController::Base
+class CommentsController < ApplicationController
+  def new
+    @comment = Comment.new
+  end
+
   def create
-    @comment = Comment.new(text: params[:text], user_id: params[:user_id], post_id: params[:id])
+    #  render plain: params
+    @current_user = current_user
+    returned_values = comment_params
+    returned_values.merge!(user_id: @current_user.id.to_s)
+    @comment = @current_user.comment.new(returned_values)
     if @comment.save
       @comment.update_comment_counter(params[:id])
       redirect_to post_details_path
     else
-      render notice: 'Something Went wrong'
+      redirect_to comments_create_path
     end
+  end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:text, :post_id)
+    # params
   end
 end

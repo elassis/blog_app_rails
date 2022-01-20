@@ -24,7 +24,9 @@
           <p><%= c.user_name(c.user_id) %>: <%= c.text %></p>
         <% end %>
       </li>
+      <li class="comment-container">
+        <%= render 'comments/form' %>
+      </li>
     </ul>
-    <%= render 'comments/form' %>
   </body>
 </html>

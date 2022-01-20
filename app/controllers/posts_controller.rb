@@ -18,12 +18,19 @@ class PostsController < ApplicationController
   end
 
   def create
-    @new_post = Post.new(title: params[:title], text: params[:text], user_id: params[:user_id])
+    @current_user = current_user
+    @new_post = @current_user.post.new(post_params)
     if @new_post.save
       @new_post.update_posts_counter(params[:user_id])
       redirect_to root_path, notice: 'Post created succesfully!'
     else
       render :new
     end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
   end
 end

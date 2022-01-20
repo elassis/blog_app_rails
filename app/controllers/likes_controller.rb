@@ -1,4 +1,4 @@
-class LikesController < ActionController::Base
+class LikesController < ApplicationController
   def create
     @like = Like.new(user_id: params[:user_id], post_id: params[:id])
     if @like.save
