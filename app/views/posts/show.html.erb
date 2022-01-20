@@ -17,11 +17,15 @@
           <p class="post-interactions">comments: <%= @post.comments_counter%>, likes: <%= @post.likes_counter%> </p>
         </div>
         <p class="post-text-extended"><%= @post.text %></p>
+        <%= render 'likes/form' %>
       </li>
       <li class="comments-section-details">
         <% @comments.each do |c|%>
           <p><%= c.user_name(c.user_id) %>: <%= c.text %></p>
         <% end %>
+      </li>
+      <li class="comment-container">
+        <%= render 'comments/form' %>
       </li>
     </ul>
   </body>

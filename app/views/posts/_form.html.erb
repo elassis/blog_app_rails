@@ -1,0 +1,5 @@
+<%= form_with class:"post-form", model: @post, url: posts_create_path, method: :post, data: { turbo: false } do |form| %>
+  <%= form.text_field "post[title]", placeholder: "Type Post Title" %>
+  <%= form.text_area "post[text]", class:'text-area-post',placeholder: "Type Post Text" %>
+  <%= form.submit %>
+<% end %>
