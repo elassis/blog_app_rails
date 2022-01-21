@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20_220_113_183_203) do
     t.text 'text'
     t.bigint 'user_id', null: false
     t.bigint 'post_id', null: false
-    t.index ['post_id'], name: 'index_comments_on_posts_id'
+    t.index ['post_id'], name: 'index_comments_on_post_id'
     t.index ['user_id'], name: 'index_comments_on_user_id'
   end
 
@@ -32,17 +32,18 @@ ActiveRecord::Schema.define(version: 20_220_113_183_203) do
     t.index ['post_id'], name: 'index_likes_on_post_id'
     t.index ['user_id'], name: 'index_likes_on_user_id'
   end
-  second_part
+
+  part_two
 end
 
-def second_part
+def part_two
   create_table 'posts', force: :cascade do |t|
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.string 'title'
-    t.string 'text'
-    t.decimal 'comments_counter'
-    t.decimal 'likes_counter'
+    t.text 'title'
+    t.text 'text'
+    t.integer 'comments_counter'
+    t.integer 'likes_counter'
     t.bigint 'user_id', null: false
     t.index ['user_id'], name: 'index_posts_on_user_id'
   end
@@ -50,16 +51,16 @@ def second_part
   create_table 'users', force: :cascade do |t|
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.string 'name'
-    t.string 'photo'
-    t.string 'bio'
-    t.decimal 'post_counter'
+    t.text 'name'
+    t.text 'photo'
+    t.text 'bio'
+    t.integer 'post_counter'
   end
 
-  third_part
+  part_three
 end
 
-def third_part
+def part_three
   add_foreign_key 'comments', 'posts', column: 'post_id'
   add_foreign_key 'comments', 'users'
   add_foreign_key 'likes', 'posts'

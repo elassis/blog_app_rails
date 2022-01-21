@@ -19,10 +19,12 @@ class PostsController < ApplicationController
 
   def create
     @current_user = current_user
-    @new_post = @current_user.post.new(post_params)
+    returned_values = post_params
+    returned_values.merge!(comments_counter: 0, likes_counter: 0, user_id: @current_user.id.to_s)
+    @new_post = @current_user.post.new(returned_values)
     if @new_post.save
       @new_post.update_posts_counter(params[:user_id])
-      redirect_to root_path, notice: 'Post created succesfully!'
+      redirect_to root_path, flash: { post_added: 'Post added Successfully!' }
     else
       render :new
     end
