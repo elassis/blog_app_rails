@@ -24,6 +24,12 @@
           <p><%= c.user_name(c.user_id) %>: <%= c.text %></p>
         <% end %>
       </li>
+      <% if flash[:comment_added] %>
+        <p>Comment Added Successfully</p>
+      <% end %>
+      <% if flash[:like_added] %>
+        <p>Like Added Successfully</p>
+      <% end %>
       <li class="comment-container">
         <%= render 'comments/form' %>
       </li>

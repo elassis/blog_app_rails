@@ -9,7 +9,7 @@ RSpec.describe 'UsersController', type: :request do
       expect(response).to render_template('index')
     end
     it 'includes the right placeholder' do
-      expect(response.body).to include("Show list of every user's post")
+      expect(response.body).to include('number of post')
     end
   end
   describe 'GET /user' do
@@ -21,7 +21,7 @@ RSpec.describe 'UsersController', type: :request do
       expect(response).to render_template('show')
     end
     it 'includes the right placeholder' do
-      expect(response.body).to include("Show data of user's specific post")
+      expect(response.body).to include('comments')
     end
   end
 end

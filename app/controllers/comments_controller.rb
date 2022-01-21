@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     @comment = @current_user.comment.new(returned_values)
     if @comment.save
       @comment.update_comment_counter(params[:id])
-      redirect_to post_details_path
+      redirect_to post_details_path, flash: { comment_added: 'Comment added Successfully!' }
     else
       redirect_to comments_create_path
     end

@@ -11,6 +11,9 @@
 
   <body>
     <ul class="ul-user">
+    <% if flash[:post_added] %>
+      <p>Post Added Successfully!</p>
+    <% end %>
     <% @list_users.each do |u| %>
     <li>
       <div class="user-img">
