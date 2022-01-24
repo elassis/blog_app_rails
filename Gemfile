@@ -76,4 +76,5 @@ group :test, :development do
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'xmpp4r'
+  gem 'devise'
 end
