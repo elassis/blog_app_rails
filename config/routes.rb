@@ -13,7 +13,10 @@ Rails.application.routes.draw do
   post '/users/:user_id/posts/:id/likes/create', to: 'likes#create', as: 'likes_create'
   get '/users/:user_id/posts/:id', to: 'posts#show', as: 'post_details'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
+  
   # Defines the root path route ("/")
-  root 'users#index'
+  root to: 'users#index'
+  # devise_for :users, controllers: { sessions: "users/sessions" }
+  # resources :users_crew, :controller => 'users'
+
 end
