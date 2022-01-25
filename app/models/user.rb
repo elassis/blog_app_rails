@@ -1,16 +1,13 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
   has_many :post
   has_many :comment
   has_many :like
   validates :name, presence: true
   validates :post_counter, presence: false, numericality: { greater_than_or_equal_to: 0 }
-  attr_accessor :email, :email_confirmation
-
-  validates :email, confirmation: true
 
   def recent_posts
     Post.includes(:user).where("user_id = #{id}").references(:user).limit(3)
