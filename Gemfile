@@ -70,11 +70,11 @@ group :test, :development do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'bullet'
   gem 'capybara'
+  gem 'devise'
   gem 'ffi'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 5.0.2'
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'xmpp4r'
-  gem 'devise'
 end
