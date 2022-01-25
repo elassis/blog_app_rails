@@ -24,26 +24,6 @@ ActiveRecord::Schema.define(version: 20_220_124_203_222) do
     t.index ['user_id'], name: 'index_comments_on_user_id'
   end
 
-  create_table 'likes', force: :cascade do |t|
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.bigint 'user_id', null: false
-    t.bigint 'post_id', null: false
-    t.index ['post_id'], name: 'index_likes_on_post_id'
-    t.index ['user_id'], name: 'index_likes_on_user_id'
-  end
-
-  create_table 'posts', force: :cascade do |t|
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.text 'title'
-    t.text 'text'
-    t.integer 'comments_counter'
-    t.integer 'likes_counter'
-    t.bigint 'user_id', null: false
-    t.index ['user_id'], name: 'index_posts_on_user_id'
-  end
-
   create_table 'users', force: :cascade do |t|
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
@@ -60,6 +40,32 @@ ActiveRecord::Schema.define(version: 20_220_124_203_222) do
     t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end
 
+  second_part
+  foreign_keys
+end
+
+def second_part
+  create_table 'posts', force: :cascade do |t|
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.text 'title'
+    t.text 'text'
+    t.integer 'comments_counter'
+    t.integer 'likes_counter'
+    t.bigint 'user_id', null: false
+    t.index ['user_id'], name: 'index_posts_on_user_id'
+  end
+  create_table 'likes', force: :cascade do |t|
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.bigint 'user_id', null: false
+    t.bigint 'post_id', null: false
+    t.index ['post_id'], name: 'index_likes_on_post_id'
+    t.index ['user_id'], name: 'index_likes_on_user_id'
+  end
+end
+
+def foreign_keys
   add_foreign_key 'comments', 'posts', column: 'posts_id'
   add_foreign_key 'comments', 'users'
   add_foreign_key 'likes', 'posts'
