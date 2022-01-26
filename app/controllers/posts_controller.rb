@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     @new_post = @current_user.post.new(returned_values)
     if @new_post.save
       @new_post.update_posts_counter(params[:user_id])
-      redirect_to root_path, flash: { post_added: 'Post added Successfully!' }
+      redirect_to root_path, flash: { post_added: 'Post was added Successfully!' }
     else
       render :new
     end
